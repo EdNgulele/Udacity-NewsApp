@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">News</string>
+
+
+    <string name="no_news">No News To Show</string>
+    <string name="no_author">No Author</string>
+    <string name="no_internet">No Internet Connection. Try connecting </string>
+
+    <string name="response">response</string>
+    <string name="results">results</string>
+    <string name="webTitle">webTitle</string>
+    <string name="section_name">sectionName</string>
+    <string name="publication_date_and_time">webPublicationDate</string>
+    <string name="web_url">webUrl</string>
+    <string name="tags_array">tags</string>
+    <string name="web_title">webTitle</string>
+
+    <string name="method_GET">GET</string>
+    <string name="utf_8">UTF-8</string>
+
+
+</resources>
