@@ -1,6 +1,7 @@
 package com.github.edngulele.udacity_newsapp.util;
 
 import android.content.Context;
+import android.net.Uri;
 
 import com.github.edngulele.udacity_newsapp.R;
 import com.github.edngulele.udacity_newsapp.model.News;
@@ -23,6 +24,12 @@ public class QueryUtils {
     static int readTimeout = 10000; //milliseconds
     static int connectTimeout = 15000; //milliseconds
 
+    private static final String BASE_URL = "https://content.guardianapis.com/search?";
+    private static final String QUERY_PARAM = "q";
+    private static final String SHOW_TAGS = "show-tags";
+    private static final String API_KEY = "api-key";
+    private static final String SECTION = "section";
+
     private QueryUtils() {
     }
 
@@ -38,9 +45,17 @@ public class QueryUtils {
     }
 
     private static URL createUrl(String queryUrl) {
+
         URL url = null;
         try {
-            url = new URL(queryUrl);
+            Uri buildString = Uri.parse(BASE_URL).buildUpon()
+                    .appendQueryParameter(QUERY_PARAM, queryUrl)
+                    .appendQueryParameter(SHOW_TAGS, "contributor")
+                    .appendQueryParameter(API_KEY, "test")
+                    .appendQueryParameter(SECTION, "politics")
+                    .build();
+
+            url = new URL(buildString.toString());
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
