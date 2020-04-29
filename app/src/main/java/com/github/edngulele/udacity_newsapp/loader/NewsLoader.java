@@ -14,7 +14,8 @@ import java.util.List;
 
 public class NewsLoader extends AsyncTaskLoader<List<News>> {
 
-    private static final String request_url = "https://content.guardianapis.com/search?show-tags=contributor&api-key=37ad3e66-4685-4142-8d5b-42c17e231b73";
+    private static final String queryRequest = "debates";
+
 
     public NewsLoader(@NonNull Context context) {
         super(context);
@@ -28,9 +29,9 @@ public class NewsLoader extends AsyncTaskLoader<List<News>> {
     @Nullable
     @Override
     public List<News> loadInBackground() {
-        if (request_url == null) {
+        if (queryRequest == null) {
             return null;
         }
-        return QueryUtils.fetchNewsData(request_url, getContext());
+        return QueryUtils.fetchNewsData(queryRequest, getContext());
     }
 }
